@@ -23,8 +23,29 @@ runs:
         echo "versions=$available_versions" >> $GITHUB_OUTPUT
       shell: bash
 
+    - name: Cache SQLite installation
+      id: cache-sqlite
+      uses: actions/cache@v4
+      with:
+        path: /usr/bin/sqlite3
+        key: ${{ runner.os }}-sqlite-${{ inputs.version || 'latest' }}
+        restore-keys: |
+          ${{ runner.os }}-sqlite-
+
+    - name: Check if SQLite is installed
+      id: check-sqlite
+      run: |
+        if [ -f "/usr/bin/sqlite3" ]; then
+          echo "SQLite is already installed."
+          echo "skip_install=true" >> $GITHUB_OUTPUT
+        else
+          echo "SQLite is not installed."
+          echo "skip_install=false" >> $GITHUB_OUTPUT
+        fi
+      shell: bash
+
     - name: Install specified SQLite version
-      if: inputs.version != ''
+      if: inputs.version != '' && steps.check-sqlite.outputs.skip_install == 'false'
       run: |
         if echo "${{ steps.check-versions.outputs.versions }}" | grep -q "^${{ inputs.version }}$"; then
           echo "Installing SQLite version ${{ inputs.version }}"
@@ -37,7 +58,7 @@ runs:
       shell: bash
 
     - name: Install latest SQLite version
-      if: inputs.version == ''
+      if: inputs.version == '' && steps.check-sqlite.outputs.skip_install == 'false'
       run: |
         echo "No version specified, installing the latest version"
         sudo apt-get install -y sqlite3 libsqlite3-dev
