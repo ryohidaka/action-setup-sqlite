@@ -7,3 +7,15 @@ description: "Custom action to set up SQLite environment."
 runs:
   using: "composite"
   steps:
+    - name: Install latest SQLite version
+      run: |
+        echo "Installing the latest version"
+        sudo apt-get install -y sqlite3 libsqlite3-dev
+        echo "Latest SQLite version installed successfully."
+      shell: bash
+
+    - name: Confirm SQLite installation
+      run: |
+        sqlite3 --version
+        echo "SQLite has been successfully installed and is ready to use."
+      shell: bash
