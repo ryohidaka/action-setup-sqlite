@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.0 (2024-08-16)
+
+
+### Miscellaneous Chores
+
+* release 1.0.0 ([6d99dc7](https://github.com/ryohidaka/setup-sqlite-action/commit/6d99dc79e7a6a9364e98c51cad012a6841ebdf67))
+
 ## 0.1.0 (2024-08-16)
 
 
