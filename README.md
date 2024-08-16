@@ -1,6 +1,6 @@
 # setup-sqlite-action
 
-[![release](https://badgen.net/github/release/ryohidaka/setup-sqlite-action)](https://github.com/ryohidaka/setup-sqlite-action/releases/)
+[![GitHub Release](https://img.shields.io/github/v/release/ryohidaka/setup-sqlite-action)](https://github.com/ryohidaka/setup-sqlite-action/releases/)
 [![Test Action](https://github.com/ryohidaka/setup-sqlite-action/actions/workflows/test.yml/badge.svg)](https://github.com/ryohidaka/setup-sqlite-action/actions/workflows/test.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
