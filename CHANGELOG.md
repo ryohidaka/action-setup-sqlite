@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/ryohidaka/setup-sqlite-action/compare/v1.0.0...v1.1.0) (2024-08-16)
+
+
+### Features
+
+* Change action name. ([7ebd30b](https://github.com/ryohidaka/setup-sqlite-action/commit/7ebd30b65603ee84af57a6c6baa551393d53d44e))
+
 ## 1.0.0 (2024-08-16)
 
 
