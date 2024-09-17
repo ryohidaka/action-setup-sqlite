@@ -1,7 +1,7 @@
 # Setup SQLite
 
-[![GitHub Release](https://img.shields.io/github/v/release/ryohidaka/setup-sqlite-action)](https://github.com/ryohidaka/setup-sqlite-action/releases/)
-[![Test Action](https://github.com/ryohidaka/setup-sqlite-action/actions/workflows/test.yml/badge.svg)](https://github.com/ryohidaka/setup-sqlite-action/actions/workflows/test.yml)
+[![GitHub Release](https://img.shields.io/github/v/release/ryohidaka/action-setup-sqlite)](https://github.com/ryohidaka/action-setup-sqlite/releases/)
+[![Test Action](https://github.com/ryohidaka/action-setup-sqlite/actions/workflows/test.yml/badge.svg)](https://github.com/ryohidaka/action-setup-sqlite/actions/workflows/test.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 Custom action to set up SQLite environment.
@@ -9,7 +9,7 @@ Custom action to set up SQLite environment.
 ## Usage
 
 ```yml
-- uses: ryohidaka/setup-sqlite-action@v1
+- uses: ryohidaka/action-setup-sqlite@v1
   with:
     version: "3.43.2"
 ```
