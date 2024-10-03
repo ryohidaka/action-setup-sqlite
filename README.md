@@ -9,7 +9,7 @@ Custom action to set up SQLite environment.
 ## Usage
 
 ```yml
-- uses: ryohidaka/action-setup-sqlite@v1
+- uses: ryohidaka/action-setup-sqlite@v1.1.0
   with:
     version: "3.43.2"
 ```
