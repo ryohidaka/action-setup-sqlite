@@ -16,9 +16,9 @@ Custom action to set up SQLite environment.
 
 ## Inputs
 
-| Input     | Required | Description               | Default | Example  |
-| --------- | -------- | ------------------------- | ------- | -------- |
-| `version` | ❌       | SQLite version to install | `""`    | `3.43.2` |
+| Input     | Description               | Default | Example  |
+| --------- | ------------------------- | ------- | -------- |
+| `version` | SQLite version to install | `""`    | `3.43.2` |
 
 ## License
 
