@@ -57,5 +57,5 @@ runs:
     - name: Confirm SQLite installation
       run: |
         sqlite3 --version
-        echo "SQLite has been successfully installed and is ready to use."
+        echo "::notice::SQLite has been successfully installed and is ready to use."
       shell: bash
