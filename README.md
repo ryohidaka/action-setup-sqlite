@@ -4,7 +4,7 @@
 [![Test Action](https://github.com/ryohidaka/action-setup-sqlite/actions/workflows/test.yml/badge.svg)](https://github.com/ryohidaka/action-setup-sqlite/actions/workflows/test.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-Custom action to set up SQLite environment.
+GitHub Actions to setup SQLite environment.
 
 ## Usage
 
