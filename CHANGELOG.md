@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/ryohidaka/action-setup-sqlite/compare/v1.1.0...v1.2.0) (2024-10-04)
+
+
+### Features
+
+* Separate to shell script file. ([1274329](https://github.com/ryohidaka/action-setup-sqlite/commit/127432964e9535ab4006c006d22742def71337ef))
+
 ## [1.1.0](https://github.com/ryohidaka/action-setup-sqlite/compare/v1.0.0...v1.1.0) (2024-08-16)
 
 
