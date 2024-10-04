@@ -17,14 +17,14 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Set GitHub Path
+      run: echo "GITHUB_ACTION_PATH=${GITHUB_ACTION_PATH}" >> $GITHUB_ENV
+      shell: bash
+
     - name: Check available SQLite versions
       id: check-versions
       run: |
-        sudo apt-get update
-        available_versions=$(apt-cache showpkg sqlite3 | grep -Eo '3\.[0-9]+\.[0-9]+' | sort -V | uniq | tr '\n' ',')
-        available_versions=${available_versions%,}
-        echo "Available versions: $available_versions"
-        echo "versions=$available_versions" >> $GITHUB_OUTPUT
+        $GITHUB_ACTION_PATH/scripts/check_versions.sh
       shell: bash
 
     - name: Cache SQLite installation
@@ -39,34 +39,19 @@ runs:
     - name: Check if SQLite is installed
       id: check-sqlite
       run: |
-        if [ -f "/usr/bin/sqlite3" ]; then
-          echo "SQLite is already installed."
-          echo "skip_install=true" >> $GITHUB_OUTPUT
-        else
-          echo "SQLite is not installed."
-          echo "skip_install=false" >> $GITHUB_OUTPUT
-        fi
+        $GITHUB_ACTION_PATH/scripts/cache_sqlite.sh
       shell: bash
 
     - name: Install specified SQLite version
       if: inputs.version != '' && steps.check-sqlite.outputs.skip_install == 'false'
       run: |
-        if echo "${{ steps.check-versions.outputs.versions }}" | grep -q "^${{ inputs.version }}$"; then
-          echo "Installing SQLite version ${{ inputs.version }}"
-          sudo apt-get install -y sqlite3=${{ inputs.version }} libsqlite3-dev=${{ inputs.version }}
-          echo "SQLite version ${{ inputs.version }} installed successfully."
-        else
-          echo "Error: Specified version ${{ inputs.version }} is not available"
-          exit 1
-        fi
+        $GITHUB_ACTION_PATH/scripts/install_version.sh "${{ inputs.version }}" "${{ steps.check-versions.outputs.versions }}"
       shell: bash
 
     - name: Install latest SQLite version
       if: inputs.version == '' && steps.check-sqlite.outputs.skip_install == 'false'
       run: |
-        echo "No version specified, installing the latest version"
-        sudo apt-get install -y sqlite3 libsqlite3-dev
-        echo "Latest SQLite version installed successfully."
+        $GITHUB_ACTION_PATH/scripts/install_latest.sh
       shell: bash
 
     - name: Confirm SQLite installation
