@@ -13,6 +13,6 @@ jobs:
   format:
     runs-on: ubuntu-latest
     steps:
-      - uses: ryohidaka/action-sh-format@v0.2.4
+      - uses: ryohidaka/action-sh-format@v0.3.2
         with:
           path: "./scripts"
